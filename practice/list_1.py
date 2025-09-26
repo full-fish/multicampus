@@ -24,4 +24,5 @@
 
 # print(a, b, c, c)
 
-print(300 == 300)
+print(all(n % 2 == 0 for n in [2, 4]))
+print(all([n % 2 == 0 for n in [2, 4]]))
