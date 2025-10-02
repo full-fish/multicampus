@@ -67,8 +67,47 @@
 # dic_score = dict(aa=80, bb=70, cc=40, dd=30)
 # result = {i: ("pass" if v >= 70 else "false") for i, v in dic_score.items()}
 # print(result)
-ex = [1, 2, 3, 4]
-a = [x**2 if x % 2 == 0 else x for x in ex]
-b = list(map(lambda x: x**2, filter(lambda x: x % 2 == 0, ex)))
-print(a)
-print(b)
+
+
+# ex = [1, 2, 3, 4]
+# a = [x**2 if x % 2 == 0 else x for x in ex]
+# b = list(map(lambda x: x**2, filter(lambda x: x % 2 == 0, ex)))
+# print(a)
+# print(b)
+
+# from functools import reduce
+
+# # arr = [1, 2, 3, 4, 5]
+# # sum_val = reduce(lambda acc, cur: acc + cur, arr, 0)
+# # sum_val2 = [a := a + x for x in arr]
+# # print(sum_val)
+# # print(sum_val2)
+
+# for x in range(5, 0, -1):
+#     print(x)
+
+# for data in zip([[1, 2], [3, 4], [5, 6]]):
+#     print(data)
+#     print(type(data))
+# print([[1, 2], [3, 4]])
+
+# print([1, 2, 3].pop(1))
+# a = []
+# if a and a[0] == 1:
+#     print(1)
+
+# matrix_a = [[1, 1], [1, 1]]
+# matrix_b = [[1, 1], [1, 1]]
+# print(
+#     all(
+#         [value[0] == value[1] for row in zip(matrix_a, matrix_b) for value in zip(*row)]
+#     )
+# )
+
+# matrix_a = [[1, 2, 3], [4, 5, 6]]  # [[1,4],[2,5],[3,6]]
+
+# print(list(zip(*matrix_a)))
+# print(list(zip(*matrix_a, *matrix_a)))
+
+# print(list(range(1, 10, 1)))
+# print([x for x in range(1, 10, 1)])
