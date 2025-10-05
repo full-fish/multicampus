@@ -20,18 +20,20 @@ class NoteBook(object):
         self.name = name
         self.pages = 0
         self.notes = {}
+        self.removed_pages = []
 
     def add_note(self, note, page_number=0):
         if len(self.notes.keys()) < 300:
+            if page_number in self.removed_pages:
+                print("삭제된 페이지입니다. 다른 페이지를 입력하세요")
+                return
             if page_number == 0:
-                if self.pages < 300:
-                    self.notes[self.pages] = note
+                while True:
+                    if self.pages not in self.notes.keys():
+                        self.notes[self.pages] = note
+                        self.pages += 1
+                        break
                     self.pages += 1
-                else:
-                    for i in range(300):
-                        if i not in list(self.notes.keys()):
-                            self.notes[i] = note
-                            break
             else:
                 if page_number not in self.notes.keys():
                     self.notes[page_number] = note
@@ -42,6 +44,8 @@ class NoteBook(object):
 
     def remove_note(self, page_number):
         del self.notes[page_number]
+        self.removed_pages.append(page_number)
+        # self.notes[page_number].remove()
 
     def get_number_of_all_lines(self):
         result = 0
@@ -60,6 +64,3 @@ class NoteBook(object):
 
     def __str__(self):
         return self.name
-
-
-print("11", __name__)
