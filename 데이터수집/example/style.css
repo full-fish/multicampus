@@ -1,0 +1,73 @@
+/* 전체 기본 설정 */
+body {
+  font-family: "맑은 고딕", sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+/* 헤더 스타일 */
+header {
+  background-color: #003366;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+header h1 {
+  margin: 0;
+  font-size: 2em;
+}
+/* 메인 콘텐츠 영역 */
+main {
+  width: 80%;
+  max-width: 900px;
+  margin: 30px auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+/* 섹션 구분 */
+section {
+  margin-bottom: 30px;
+}
+section h2 {
+  color: #0056b3;
+  border-bottom: 2px solid #0056b3;
+  padding-bottom: 5px;
+}
+/* 리스트 스타일 */
+ul {
+  list-style-type: square;
+  padding-left: 20px;
+}
+/* 강조 텍스트 */
+.highlight {
+  color: crimson;
+  font-weight: bold;
+}
+/* 이미지 스타일 */
+img {
+  display: block;
+  margin-top: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+/* 링크 스타일 */
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+  color: #0056b3;
+}
+/* 푸터 스타일 */
+footer {
+  text-align: center;
+  background-color: #f1f1f1;
+  padding: 15px;
+  color: #555;
+  font-size: 0.9em;
+  border-top: 1px solid #ddd;
+}
