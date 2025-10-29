@@ -8,3 +8,19 @@ pdf/
 
 # Playwright 프로필 폴더 제외
 playwright-chatgpt-profile/
+
+
+# macOS 시스템 파일
+.DS_Store
+
+# Jupyter Notebook 파일 (백업 및 실습용)
+dataCollection/example/*.ipynb
+dataCollection/example/.DS_Store
+
+# macOS 시스템 파일
+dataCollection/example/.DS_Store
+
+# Jupyter Notebook 실습 및 사본 파일
+dataCollection/example/matplot_seaborn_question.ipynb의 사본
+dataCollection/example/matplotlib_exam.ipynb
+dataCollection/example/seaborn_exam.ipynb
