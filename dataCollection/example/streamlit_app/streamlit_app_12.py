@@ -34,9 +34,10 @@ graph_kind_dummy = [
     "barplot",
     "pairplot",
 ]
-isOK = False
+# 버튼 상태
+if "ok" not in st.session_state:
+    st.session_state.ok = False
 
-fig, ax = plt.subplots()
 
 # 사이드바단
 st.sidebar.title("설정 메뉴")
@@ -61,21 +62,27 @@ if graph_kind != "선택 안함":
             "y축을 선택해주세요.", columns[1:], default=[]
         )
 
-    isOK = st.sidebar.button("확인")
-    
+    st.session_state.ok = st.sidebar.button("확인")
+    # if st.sidebar.button("확인"):
+    #     st.session_state.ok = True
 # 메인 단
 st.title("penguins 데이터 시각화 대시보드")
 st.caption("Seaborn 내장 데이터셋을 이용한 인터랙티브 시각화 예제")
 
 st.header("데이터 미리보기")
 st.dataframe(df.head())
-if isOK:
+if st.session_state.ok:
     st.header(f"📊 선택된 그래프: {graph_kind}")
-    if graph_kind != "pairplot" and axis_x == "선택 안함":
+    if (graph_kind != "pairplot" and axis_x == "선택 안함") or (
+        graph_kind == "pairplot" and not axis_x_list
+    ):
         st.warning("x축을 선택해주세요.")
-    elif graph_kind not in ["histplot", "pairplot"] and axis_y == "선택 안함":
+    elif (graph_kind not in ["histplot", "pairplot"] and axis_y == "선택 안함") or (
+        graph_kind == "pairplot" and not axis_y_list
+    ):
         st.warning("y축을 선택해주세요.")
     else:
+        fig, ax = plt.subplots()
         if graph_kind == "scatterplot":
             ax.set_title(f"{axis_x} 와 {axis_y}")
             sns.scatterplot(data=df, x=axis_x, y=axis_y, hue=color_hue, ax=ax)
@@ -100,7 +107,3 @@ if isOK:
             )
             st.stop()
         st.pyplot(fig)
-
-# elif graph_kind == "선택 안함":
-#     ax.set_title(f"{axis_x} 와 {axis_y}")
-#     sns.barplot(data=df, x=axis_x, y=axis_y, hue=color_hue, ax=ax)
