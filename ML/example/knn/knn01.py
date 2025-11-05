@@ -43,7 +43,10 @@ print(f"데이터 개수: ,{len(X)}")
 print(f"특성(features): {iris.feature_names}")
 print(f"클래스(species): {iris.target_names}")
 df = pd.DataFrame(X[:, [2, 3]], columns=iris.feature_names[2:4])
+print("df", df)
+
 df["species"] = [iris.target_names[i] for i in Y]
+print("df2", df)
 
 fig = plt.figure(figsize=(12, 5))
 ax1 = fig.add_subplot(1, 2, 1)
