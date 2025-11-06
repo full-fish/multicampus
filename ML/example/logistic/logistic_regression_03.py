@@ -19,6 +19,19 @@ from sklearn.metrics import (
     confusion_matrix,
     classification_report,
 )
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split, StratifiedKFold, GridSearchCV
+from sklearn.preprocessing import StandardScaler
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import (
+    accuracy_score,
+    roc_auc_score,
+    classification_report,
+    confusion_matrix,
+    RocCurveDisplay,
+)
 
 # 한글
 from matplotlib import font_manager, rc
@@ -39,7 +52,7 @@ df = df.dropna(subset=["age", "embarked", "sex", "class"])
 print(df)
 # 원핫 인코딩
 df_encoded = pd.get_dummies(df, drop_first=True)
-print(df_encoded)
+print("df_encoded", df_encoded)
 #! "alive_yes"이거 가 survived랑 같은 데이터라 있으면 데이터누수 나서 정확도 1이 나옴
 X = df_encoded.drop(columns=["survived", "alive_yes"])
 Y = df_encoded["survived"]
