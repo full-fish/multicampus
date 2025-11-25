@@ -1,5 +1,8 @@
 pdf/
 *.dump
+*.xlsx
+*.csv
+
 # macOS 자동 파일
 .DS_Store
 
