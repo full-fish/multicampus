@@ -35,7 +35,7 @@ print(y.value_counts())
 
 
 with open(
-    r"D:\multicompus\example\nlp\stat_nlp\naive_bayes_svm\stopwords-ko.txt",
+    r"/Users/choimanseon/Documents/multicampus/example/nlp/stat_nlp/stopwords-ko.txt",
     encoding="utf-8",
 ) as f:
     stopwords = set(w.strip() for w in f if w.strip())
