@@ -193,4 +193,19 @@ batch2 = next(iter(loader2))
 print("\n--- 동적 패딩 DataLoader 확인 결과 ---")
 # 배치마다 길이가 달라질 수 있음 (최대 길이는 7이 될 수 있음)
 print("동적 패딩 input_ids shape:", batch2["input_ids"].shape)
+
+print(
+    "\n\n-------------\n",
+)
+batch2_input_ids_list = batch2["input_ids"].tolist()
+reverce_vocab = {index: token for token, index in vocab.items()}
+get_batch2_vocab = []
+for batch in batch2_input_ids_list:
+    temp = []
+    for num in batch:
+        temp.append(reverce_vocab[num])
+    get_batch2_vocab.append(temp)
+print("\n\nget_batch2_vocab\n", get_batch2_vocab)
+
+# print("동적 패딩 input_ids shape:", batch2["input_ids"])
 print("동적 패딩 attention_mask:\n", batch2["attention_mask"])
